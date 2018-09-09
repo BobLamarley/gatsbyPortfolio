@@ -162,6 +162,10 @@ class HomeIndex extends React.Component {
                                         <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
                                         <a href="#">tms.mignon@gmail.com</a>
                                     </li>
+                                    <li>
+                                        <h3 className="icon fa-download"><span className="label">CV</span></h3>
+                                        <a href="static/CV_Thomas_Mignon.pdf">Get my CV</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
