@@ -1,19 +1,16 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+title: bigEars : a data presentational app written in Vue
+date: "2018-09-10T22:12:03.284Z"
 path: "/hello-world/"
 ---
 
-This is my first post on my new fake blog! How exciting!
+>Big Ears is a project that aims to historize Kafka events of the information system, because currently the policy of retention of these events in the Kafka bus is 8h. The goal is to be able to render a customer journey based on all the events that this customer will have generated in Arkea's information system.
+It allows you to search by topics and by customer number.
+In addition, it also standardizes the format of future topics according to naming rules and provides a topic / event associative dictionary to easily know the type of content that can contain a Kafka topic.
+In the future, it will also be able to replay certain events in order to debug applications for example.
 
-I'm sure I'll write a lot more interesting things in the future.
-
-Oh, and here's a great quote from this Wikipedia on [salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
-
->A salted duck egg is a Chinese preserved food product made by soaking duck eggs in brine, or packing each egg in damp, salted charcoal. In Asian supermarkets, these eggs are sometimes sold covered in a thick layer of salted charcoal paste. The eggs may also be sold with the salted paste removed, wrapped in plastic, and vacuum packed. From the salt curing process, the salted duck eggs have a briny aroma, a gelatin-like egg white and a firm-textured, round yolk that is bright orange-red in color.
+![bigEars](./bigEars1.png)
 
 <ul class="actions">
     <li><a href="/" class="button">Back</a></li>
 </ul>
-
-![Chinese Salty Egg](./salty_egg.jpg)

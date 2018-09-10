@@ -33,50 +33,6 @@ const DEFAULT_IMAGES = [
 
 class HomeIndex extends React.Component {
 
-    constructor() {
-        super();
-
-        this.state = {
-            lightboxIsOpen: false,
-            currentImage: 0,
-        };
-
-        this.closeLightbox = this.closeLightbox.bind(this);
-        this.gotoNext = this.gotoNext.bind(this);
-        this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.openLightbox = this.openLightbox.bind(this);
-        this.handleClickImage = this.handleClickImage.bind(this);
-    }
-
-    openLightbox (index, event) {
-        event.preventDefault();
-        this.setState({
-            currentImage: index,
-            lightboxIsOpen: true,
-        });
-    }
-    closeLightbox () {
-        this.setState({
-            currentImage: 0,
-            lightboxIsOpen: false,
-        });
-    }
-    gotoPrevious () {
-        this.setState({
-            currentImage: this.state.currentImage - 1,
-        });
-    }
-    gotoNext () {
-        this.setState({
-            currentImage: this.state.currentImage + 1,
-        });
-    }
-    handleClickImage () {
-        if (this.state.currentImage === this.props.images.length - 1) return;
-
-        this.gotoNext();
-    }
-
     static defaultProps = {
       center: {
         lat: 48.3838502,
@@ -102,11 +58,20 @@ class HomeIndex extends React.Component {
 
                     <section id="one">
                         <header className="major">
-                            <h2>a front presentational data written in Vue</h2>
+                            <h2>bigEars : a data presentational app written in Vue</h2>
                         </header>
-                        <p>Here is what im working working on at Arkea.</p>
+                        <p>During my last year internship, I worked on a project from scratch on the front-end part.
+                        I chose Vue.js, Vuex and webpack to complete this project, and I will explain how in this article </p>
                         <ul className="actions">
                             <li><a href="/hello-world" className="button">Learn More</a></li>
+                        </ul>
+
+                        <header className="major">
+                            <h2>myCryptoWorld : a cryptocurrency portfolio tracker</h2>
+                        </header>
+                        <p>During my freetime, I used to play around with new technology especially Javascript. This is what i did by creating a smartphone app in react Native who uses GraphQL and other cools stuffs. </p>
+                        <ul className="actions">
+                            <li><a href="/hello-world" className="button">Read More here</a></li>
                         </ul>
                     </section>
 
@@ -120,9 +85,6 @@ class HomeIndex extends React.Component {
                             description
                         }))} />
 
-                        <ul className="actions">
-                            <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul>
                     </section>
 
                     <section id="three">
@@ -137,14 +99,12 @@ class HomeIndex extends React.Component {
                                 defaultZoom={this.props.zoom}
                               >
                                 <AnyReactComponent
-                                  lat={48.3838502}
-                                  lng={-4.5514561}
+                                  lat={48.269265}
+                                  lng={-4.8045334}
                                 />
                               </GoogleMapReact>
                             </div>
-                                <ul className="actions">
-                                    <li><input type="submit" value="Send Message" /></li>
-                                </ul>
+
                             </div>
                             <div className="4u 12u$(small)">
                                 <ul className="labeled-icons">
@@ -164,7 +124,7 @@ class HomeIndex extends React.Component {
                                     </li>
                                     <li>
                                         <h3 className="icon fa-download"><span className="label">CV</span></h3>
-                                        <a href="static/CV_Thomas_Mignon.pdf">Get my CV</a>
+                                        <a href="http://www.thomas-mignon.com/public/CV_Thomas_Mignon.pdf">Get my CV</a>
                                     </li>
                                 </ul>
                             </div>
