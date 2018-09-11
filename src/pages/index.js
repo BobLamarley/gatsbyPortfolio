@@ -3,6 +3,9 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
+import {Timeline, TimelineEvent} from 'react-event-timeline'
+
+
 import GoogleMapReact from 'google-map-react'
 
 // import Lightbox from 'react-images'
@@ -10,25 +13,18 @@ import Gallery from '../components/Gallery'
 
 import thumb01 from '../assets/images/thumbs/01.jpg'
 import thumb02 from '../assets/images/thumbs/02.jpg'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
-import thumb06 from '../assets/images/thumbs/06.jpg'
 
 import full01 from '../assets/images/fulls/01.jpg'
 import full02 from '../assets/images/fulls/02.jpg'
-import full03 from '../assets/images/fulls/03.jpg'
-import full04 from '../assets/images/fulls/04.jpg'
-import full05 from '../assets/images/fulls/05.jpg'
-import full06 from '../assets/images/fulls/06.jpg'
+
+import arkeaLogo from '../assets/images/arkeaLogo.png'
+import isenLogo from '../assets/images/isenLogo.jpg'
+import immofacileLogo from '../assets/images/immofacileLogo.jpg'
+
 
 const DEFAULT_IMAGES = [
     { id: '1', src: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '2', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '3', src: full03, thumbnail: thumb03, caption: 'Photo 3', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '4', src: full04, thumbnail: thumb04, caption: 'Photo 4', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '5', src: full05, thumbnail: thumb05, caption: 'Photo 5', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '6', src: full06, thumbnail: thumb06, caption: 'Photo 6', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
+    { id: '2', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
 ];
 
 class HomeIndex extends React.Component {
@@ -56,26 +52,19 @@ class HomeIndex extends React.Component {
 
                 <div id="main">
 
-                    <section id="one">
+                    <section id="article">
                         <header className="major">
                             <h2>bigEars : a data presentational app written in Vue</h2>
                         </header>
                         <p>During my last year internship, I worked on a project from scratch on the front-end part.
                         I chose Vue.js, Vuex and webpack to complete this project, and I will explain how in this article </p>
                         <ul className="actions">
-                            <li><a href="/hello-world" className="button">Learn More</a></li>
-                        </ul>
-
-                        <header className="major">
-                            <h2>myCryptoWorld : a cryptocurrency portfolio tracker</h2>
-                        </header>
-                        <p>During my freetime, I used to play around with new technology especially Javascript. This is what i did by creating a smartphone app in react Native who uses GraphQL and other cools stuffs. </p>
-                        <ul className="actions">
-                            <li><a href="/hello-world" className="button">Read More here</a></li>
+                            <li><a href="/bigears/" className="button">Read more</a></li>
                         </ul>
                     </section>
 
-                    <section id="two">
+
+                    <section id="project">
                         <h2>Recent Work</h2>
 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, src, thumbnail, caption, description }) => ({
@@ -87,7 +76,40 @@ class HomeIndex extends React.Component {
 
                     </section>
 
-                    <section id="three">
+                    <section id="timeline">
+                    <h2>Timeline</h2>
+                      <Timeline>
+                             <TimelineEvent title="ISEN Engineering school"
+                                            createdAt="2013 - 2018"
+                                            icon={<i className="icon fa-book"></i>}
+                             >
+                             <img src={isenLogo} id="isenLogo"/>
+                            <div>
+                                Courses involving math, physics, statistics, computer technologies and big data
+                            </div>
+                            </TimelineEvent>
+                            <TimelineEvent title="Arkea internship : Fullstack Developper"
+                                           createdAt="2017 - 2018"
+                                           icon={<i className="icon fa-pencil"></i>}
+                                       >
+                                <img src={arkeaLogo} id="arkeaLogo" />
+                                <div>
+                                 I spent one year internship at a large French bank working on trendy technologies such as Vue.js, Vuex, Graphql, Webpack and back-ends in java
+                                </div>
+                            </TimelineEvent>
+                            <TimelineEvent title="Immofacile internship : Frontend Developper"
+                                           createdAt="2015 - 2016"
+                                           icon={<i className="icon fa-pencil"></i>}
+                                       >
+                                <img src={immofacileLogo} id="immofacileLogo" />
+                                <div>
+                                 I spent one year internship at a small company working on software for real estate agencies written in PHP/Jquery.
+                                </div>
+                            </TimelineEvent>
+                     </Timeline>
+                    </section>
+
+                    <section id="contact">
                         <h2>Get In Touch</h2>
                         <p>I am currently looking for a FullStack developer job, you can contact me if you are interested</p>
                         <div className="row">

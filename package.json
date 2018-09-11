@@ -19,6 +19,7 @@
     "google-map-react": "^1.0.6",
     "lodash": "^4.17.4",
     "nodemailer": "^4.6.8",
+    "react-event-timeline": "^1.5.4",
     "react-images": "^0.5.14"
   },
   "homepage": "https://github.com/ChangoMan/gatsby-starter-strata",

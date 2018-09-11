@@ -1506,3 +1506,58 @@
 {
 	padding-left: 40%;
 }
+
+/* Timeline */
+
+/* Import */
+
+@import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
+
+/* Variables */
+
+$background: #252827;
+
+$color-primary: #004ffc;
+$color-light: white;
+$spacing: 50px;
+$radius: 4px;
+
+$date: 120px;
+$dotborder: 4px;
+$dot: 11px;
+$line: 4px;
+
+$font-title: 'Saira', sans-serif;
+$font-text: 'Chivo', sans-serif;
+
+/* Base */
+
+p {
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 600;
+}
+
+
+
+#content {
+  margin-top: $spacing;
+  text-align: center;
+}
+
+#isenLogo
+{
+	width: 20%;
+}
+
+#arkeaLogo
+{
+	width: 20%;
+}
+
+#immofacileLogo
+{
+	width: 20%;
+}

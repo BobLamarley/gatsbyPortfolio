@@ -1,7 +1,7 @@
 ---
-title: bigEars : a data presentational app written in Vue
+title: bigEars a data presentational app written in Vue
 date: "2018-09-10T22:12:03.284Z"
-path: "/hello-world/"
+path: "/myCryptoWorld/"
 ---
 
 >Big Ears is a project that aims to historize Kafka events of the information system, because currently the policy of retention of these events in the Kafka bus is 8h. The goal is to be able to render a customer journey based on all the events that this customer will have generated in Arkea's information system.
