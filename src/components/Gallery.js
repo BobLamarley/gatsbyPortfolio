@@ -1,56 +1,77 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Lightbox from 'react-images';
+import Modal from './Modal.js'
 
 class Gallery extends Component {
-    constructor () {
-        super();
 
-        this.state = {
-            lightboxIsOpen: false,
-            currentImage: 0,
-        };
+  constructor(props) {
+   super(props)
+   this.state = {
+     isArticleVisible: false,
+     timeout: false,
+     articleTimeout: false,
+     article: '',
+     loading: 'is-loading'
+   }
+   this.handleOpenArticle = this.handleOpenArticle.bind(this)
+   this.handleCloseArticle = this.handleCloseArticle.bind(this)
+ }
 
-        this.closeLightbox = this.closeLightbox.bind(this);
-        this.gotoNext = this.gotoNext.bind(this);
-        this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.gotoImage = this.gotoImage.bind(this);
-        this.handleClickImage = this.handleClickImage.bind(this);
-        this.openLightbox = this.openLightbox.bind(this);
-    }
-    openLightbox (index, event) {
-        event.preventDefault();
-        this.setState({
-            currentImage: index,
-            lightboxIsOpen: true,
-        });
-    }
-    closeLightbox () {
-        this.setState({
-            currentImage: 0,
-            lightboxIsOpen: false,
-        });
-    }
-    gotoPrevious () {
-        this.setState({
-            currentImage: this.state.currentImage - 1,
-        });
-    }
-    gotoNext () {
-        this.setState({
-            currentImage: this.state.currentImage + 1,
-        });
-    }
-    gotoImage (index) {
-        this.setState({
-            currentImage: index,
-        });
-    }
-    handleClickImage () {
-        if (this.state.currentImage === this.props.images.length - 1) return;
+ componentDidMount () {
+   this.timeoutId = setTimeout(() => {
+       this.setState({loading: ''});
+   }, 100);
+ }
 
-        this.gotoNext();
-    }
+ componentWillUnmount () {
+   if (this.timeoutId) {
+       clearTimeout(this.timeoutId);
+   }
+ }
+
+ handleOpenArticle(article) {
+
+   this.setState({
+     isArticleVisible: !this.state.isArticleVisible,
+     article
+   })
+
+   setTimeout(() => {
+     this.setState({
+       timeout: !this.state.timeout
+     })
+   }, 325)
+
+   setTimeout(() => {
+     this.setState({
+       articleTimeout: !this.state.articleTimeout
+     })
+   }, 350)
+
+ }
+
+ handleCloseArticle() {
+
+   this.setState({
+     articleTimeout: !this.state.articleTimeout
+   })
+
+   setTimeout(() => {
+     this.setState({
+       timeout: !this.state.timeout
+     })
+   }, 325)
+
+   setTimeout(() => {
+     this.setState({
+       isArticleVisible: !this.state.isArticleVisible,
+       article: ''
+     })
+   }, 350)
+
+ }
+
     renderGallery () {
         const { images } = this.props;
 
@@ -58,11 +79,11 @@ class Gallery extends Component {
 
         const gallery = images.map((obj, i) => {
             return (
+
                 <article className="6u 12u$(xsmall) work-item" key={i}>
                     <a
                         className="image fit thumb"
-                        href={obj.src}
-                        onClick={(e) => this.openLightbox(i, e)}
+                        onClick={() => this.handleOpenArticle(obj.id)}
                     >
                         <img src={obj.thumbnail} />
                     </a>
@@ -83,24 +104,24 @@ class Gallery extends Component {
         return (
             <div>
                 {this.renderGallery()}
-                <Lightbox
-                    currentImage={this.state.currentImage}
-                    images={this.props.images}
-                    isOpen={this.state.lightboxIsOpen}
-                    onClickImage={this.handleClickImage}
-                    onClickNext={this.gotoNext}
-                    onClickPrev={this.gotoPrevious}
-                    onClickThumbnail={this.gotoImage}
-                    onClose={this.closeLightbox}
-                />
+                <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
+                  <div id="wrapper">
+                    <Modal
+                      isArticleVisible={this.state.isArticleVisible}
+                      timeout={this.state.timeout}
+                      articleTimeout={this.state.articleTimeout}
+                      article={this.state.article}
+                      onCloseArticle={this.handleCloseArticle}
+                    />
+                  </div>
+                  
+                </div>
             </div>
         );
     }
 }
 
 Gallery.displayName = 'Gallery';
-Gallery.propTypes = {
-    images: PropTypes.array
-};
+
 
 export default Gallery;

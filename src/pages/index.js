@@ -23,8 +23,8 @@ import immofacileLogo from '../assets/images/immofacileLogo.jpg'
 
 
 const DEFAULT_IMAGES = [
-    { id: '1', src: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '2', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
+    { id: 'arkea', src: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
+    { id: 'immofacile', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
 ];
 
 class HomeIndex extends React.Component {
@@ -68,6 +68,7 @@ class HomeIndex extends React.Component {
                         <h2>Recent Work</h2>
 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, src, thumbnail, caption, description }) => ({
+                            id,
                             src,
                             thumbnail,
                             caption,
@@ -79,7 +80,7 @@ class HomeIndex extends React.Component {
                     <section id="timeline">
                     <h2>Timeline</h2>
                       <Timeline>
-                             <TimelineEvent title="ISEN Engineering school"
+                             <TimelineEvent title="ISEN Engineering school : student"
                                             createdAt="2013 - 2018"
                                             icon={<i className="icon fa-book"></i>}
                              >
