@@ -23,16 +23,15 @@ import immofacileLogo from '../assets/images/immofacileLogo.jpg'
 
 
 const DEFAULT_IMAGES = [
-    { id: 'myCryptoWorld', src: full01, thumbnail: full01, caption: 'myCryptoWorld', description: 'myCryptoWorld is a portfolio for cryptocurrency written in react-native'},
-    { id: 'immofacile', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
+    { id: 'myCryptoWorld', src: full01, thumbnail: full01, caption: 'myCryptoWorld', description: 'myCryptoWorld is a portfolio for cryptocurrency written in react-native'}
 ];
 
 class HomeIndex extends React.Component {
 
     static defaultProps = {
       center: {
-        lat: 48.3838502,
-        lng: -4.5514561
+        lat: 48.3898888,
+        lng: -4.4826055
       },
       zoom: 11
     }
