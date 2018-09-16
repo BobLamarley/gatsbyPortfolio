@@ -31,46 +31,47 @@ class Gallery extends Component {
  }
 
  handleOpenArticle(article) {
+  this.setState({
+    isArticleVisible: true,
+    article
+  })
 
-   this.setState({
-     isArticleVisible: !this.state.isArticleVisible,
-     article
-   })
+  setTimeout(() => {
+    this.setState({
+      timeout: true
+    })
+  }, 325)
 
-   setTimeout(() => {
-     this.setState({
-       timeout: !this.state.timeout
-     })
-   }, 325)
+  setTimeout(() => {
+    this.setState({
+      articleTimeout: true
+    })
+  }, 350)
 
-   setTimeout(() => {
-     this.setState({
-       articleTimeout: !this.state.articleTimeout
-     })
-   }, 350)
+}
 
- }
+handleCloseArticle(event) {
 
- handleCloseArticle() {
+  event.stopPropagation()
+  
+  this.setState({
+    articleTimeout: false
+  })
 
-   this.setState({
-     articleTimeout: !this.state.articleTimeout
-   })
+  setTimeout(() => {
+    this.setState({
+      timeout: false
+    })
+  }, 325)
 
-   setTimeout(() => {
-     this.setState({
-       timeout: !this.state.timeout
-     })
-   }, 325)
+  setTimeout(() => {
+    this.setState({
+      isArticleVisible: false,
+      article: ''
+    })
+  }, 350)
 
-   setTimeout(() => {
-     this.setState({
-       isArticleVisible: !this.state.isArticleVisible,
-       article: ''
-     })
-   }, 350)
-
- }
+}
 
     renderGallery () {
         const { images } = this.props;
@@ -85,7 +86,7 @@ class Gallery extends Component {
                         className="image fit thumb"
                         onClick={() => this.handleOpenArticle(obj.id)}
                     >
-                        <img src={obj.thumbnail} />
+                        <img src={obj.thumbnail} id={obj.id+"Photo"} />
                     </a>
 
                     <h3>{obj.caption}</h3>

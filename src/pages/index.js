@@ -14,7 +14,7 @@ import Gallery from '../components/Gallery'
 import thumb01 from '../assets/images/thumbs/01.jpg'
 import thumb02 from '../assets/images/thumbs/02.jpg'
 
-import full01 from '../assets/images/fulls/01.jpg'
+import full01 from '../assets/images/myCryptoWorldHome.png'
 import full02 from '../assets/images/fulls/02.jpg'
 
 import arkeaLogo from '../assets/images/arkeaLogo.png'
@@ -23,7 +23,7 @@ import immofacileLogo from '../assets/images/immofacileLogo.jpg'
 
 
 const DEFAULT_IMAGES = [
-    { id: 'arkea', src: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
+    { id: 'myCryptoWorld', src: full01, thumbnail: full01, caption: 'myCryptoWorld', description: 'myCryptoWorld is a portfolio for cryptocurrency written in react-native'},
     { id: 'immofacile', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
 ];
 
